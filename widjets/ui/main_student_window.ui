@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_student_window</class>
+ <widget class="QMainWindow" name="main_student_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1105</width>
+    <height>435</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Форма студентов</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(198, 198, 198);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="btn_open_add_student_form">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>90</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Добавить студента</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_open_delete_student_form">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>150</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Удалить студента</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_out_all_student">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>10</y>
+      <width>211</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Вывести всех студентов 
+в таблицу</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cb_choice_filter">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>390</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="currentText">
+     <string/>
+    </property>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>id</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ФИО</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Номер телефона</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Дата рождения</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Группа</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Способ обучения</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLineEdit" name="edit_filter">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>390</y>
+      <width>421</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="placeholderText">
+     <string>Выберите критерий в выпадающем списке</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_open_delete_student_form_2">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>390</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Вывести по критерию</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>370</y>
+      <width>161</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Критерий выбора</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_save_change">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>290</y>
+      <width>211</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Сохранить изменения
+в таблице</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="table_all_student">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>871</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <column>
+     <property name="text">
+      <string>id</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>ФИО</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Номер телефона</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Дата рождения</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Место проживания</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Форма обучения</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Группа</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Номер приказа зачисления</string>
+     </property>
+    </column>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
