@@ -21,6 +21,9 @@ class MainWindow(QMainWindow):
         self.UI_main_student = FormMainStudent(parent=self)
         self.UI_main_student.show()
 
+    def open_window_groups(self):
+        self.UI_main_group = ...
+
 
 def main():
     app = QApplication(sys.argv)

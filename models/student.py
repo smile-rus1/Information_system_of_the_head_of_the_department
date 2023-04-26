@@ -12,8 +12,8 @@ class Student(Base):
     date_born = Column(VARCHAR(30), nullable=False)
     place_of_residence = Column(VARCHAR(150), nullable=False)
     enrollment_order = Column(INTEGER, unique=True)
-
     form_of_education = Column(VARCHAR(30), nullable=False)
+
     group = Column(INTEGER, ForeignKey("groups.id", ondelete="SET NULL"))
 
     def __repr__(self):
