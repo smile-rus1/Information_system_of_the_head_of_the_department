@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QMainWindow, QTableWidgetItem, QInputDialog, QLineEdit
-from sqlalchemy import and_
+from sqlalchemy import and_, func
 
 from widjets.main_student_window import Ui_main_student_window
 from modules_for_forms.form_add_student import FormAddStudent
@@ -126,9 +126,9 @@ class FormMainStudent(QMainWindow, QDialog):
         try:
             lst_all_info_student = [ls for ls in session.query(Student.id, Student.FIO, Student.number_telephone,
                                                                Student.date_born, Student.place_of_residence,
-                                                               Student.form_of_education, Group.name,
+                                                               Student.form_of_education, func.ifnull(Group.name, "Нет группы"),
                                                                Student.enrollment_order)
-            .join(Group, Group.id == Student.group)]
+            .outerjoin(Group, Group.id == Student.group)]
             self.ui_student.table_all_student.setRowCount(len(lst_all_info_student))
 
             for i, row in enumerate(lst_all_info_student):
@@ -165,12 +165,17 @@ class FormMainStudent(QMainWindow, QDialog):
         if pressed and text != "":
             session = Session()
             try:
-                id_student = session.query(Student.id).filter(Student.FIO.like(f"%{text}%")).first()[0]
+                id_student = session.query(Student.id).filter(Student.FIO.like(f"{text}")).first()[0]
                 student = session.query(Student).filter_by(id=id_student).first()
 
                 session.delete(student)
-                session.commit()
-                handler_successful(f"Был удален {student.FIO}")
+                if handler_question(f"Вы действительно хотите удалить студента {student.FIO}?"):
+                    handler_successful(f"Был удален {student.FIO}")
+                    session.commit()
+
+                else:
+                    handler_successful("Данные не были сохранены!")
+                    session.rollback()
 
             except:
                 session.rollback()
@@ -225,7 +230,6 @@ class FormMainStudent(QMainWindow, QDialog):
             if handler_question("Вы действительно хотите сохранить?"):
                 handler_successful("Данные успено сохранены!")
                 session.commit()
-
 
             else:
                 handler_successful("Данные не были сохранены!")
