@@ -183,7 +183,7 @@ class FormMainStudent(QMainWindow, QDialog):
         self.UI_form_add_sudent = FormAddStudent(parent=self)
         self.UI_form_add_sudent.show()
 
-    def update_student(self): # тут какой-то баг хз
+    def update_student(self):
         session = Session()
         try:
             data_student = []

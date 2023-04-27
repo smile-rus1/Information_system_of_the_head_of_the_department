@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from widjets.main_menu import Ui_MainWindow
 
 from modules_for_forms.form_main_student import FormMainStudent
+from modules_for_forms.form_main_group import FormMainGroup
 
 
 class MainWindow(QMainWindow):
@@ -16,13 +17,15 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         self.ui.btn_open_window_student.clicked.connect(lambda: self.open_window_student())
+        self.ui.btn_open_window_group.clicked.connect(lambda: self.open_window_groups())
 
     def open_window_student(self):
         self.UI_main_student = FormMainStudent(parent=self)
         self.UI_main_student.show()
 
     def open_window_groups(self):
-        self.UI_main_group = ...
+        self.UI_main_group = FormMainGroup()
+        self.UI_main_group.show()
 
 
 def main():
