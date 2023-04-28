@@ -14,6 +14,46 @@ from event.handler_possitive import handler_successful
 from event.handler_question import handler_question
 
 
+def find_filter_info(filter_text: str, operation: str):
+    session = Session()
+    if operation == "id":
+        filter_operation = Student.id
+
+    if operation == "ФИО":
+        filter_operation = Student.FIO
+
+    if operation == "Номер телефона":
+        filter_operation = Student.number_telephone
+
+    if operation == "Дата рождения":
+        filter_operation = Student.date_born
+
+    if operation == "Способ обучения":
+        filter_operation = Student.form_of_education
+
+    if operation == "Группа":
+        info = session.query(Student.id, Student.FIO, Student.number_telephone, Student.date_born,
+                             Student.place_of_residence, Student.form_of_education, Group.name,
+                             Student.enrollment_order).join(Group).filter(Student.group == Group.id). \
+            filter(and_(Group.name.like(f"%{filter_text}%")))
+        return info
+
+    try:
+        info_like = session.query(Student.id, Student.FIO, Student.number_telephone,
+                                  Student.date_born, Student.place_of_residence,
+                                  Student.form_of_education, Group.name,
+                                  Student.enrollment_order) \
+            .join(Group, Group.id == Student.group).filter(and_(filter_operation.like(f"%{filter_text}%")))
+
+        return info_like
+
+    except Exception as ex:
+        handler_negative(ex)
+
+    finally:
+        session.close()
+
+
 class FormMainStudent(QMainWindow, QDialog):
     def __init__(self, parent=None):
         super(FormMainStudent, self).__init__(parent)
@@ -41,45 +81,6 @@ class FormMainStudent(QMainWindow, QDialog):
         self.ui_student.btn_open_add_student_form.clicked.connect(lambda: self.show_form_add_student())
         self.ui_student.btn_save_change.clicked.connect(lambda: self.update_student())
 
-    def find_filter_info(self, filter_text: str, operation: str):
-        session = Session()
-        if operation == "id":
-            filter_operation = Student.id
-
-        if operation == "ФИО":
-            filter_operation = Student.FIO
-
-        if operation == "Номер телефона":
-            filter_operation = Student.number_telephone
-
-        if operation == "Дата рождения":
-            filter_operation = Student.date_born
-
-        if operation == "Способ обучения":
-            filter_operation = Student.form_of_education
-
-        if operation == "Группа":
-            info = session.query(Student.id, Student.FIO, Student.number_telephone, Student.date_born,
-                                 Student.place_of_residence, Student.form_of_education, Group.name,
-                                 Student.enrollment_order).join(Group).filter(Student.group == Group.id). \
-                filter(and_(Group.name.like(f"%{filter_text}%")))
-            return info
-
-        try:
-            info_like = session.query(Student.id, Student.FIO, Student.number_telephone,
-                                      Student.date_born, Student.place_of_residence,
-                                      Student.form_of_education, Group.name,
-                                      Student.enrollment_order) \
-                .join(Group, Group.id == Student.group).filter(and_(filter_operation.like(f"%{filter_text}%")))
-
-            return info_like
-
-        except Exception as ex:
-            handler_negative(ex)
-
-        finally:
-            session.close()
-
     def check_combo(self):
         if self.ui_student.cb_choice_filter.currentText() != "":
             self.ui_student.edit_filter.setEnabled(True)
@@ -101,7 +102,7 @@ class FormMainStudent(QMainWindow, QDialog):
         text_filter = self.ui_student.edit_filter.text()
         operation = self.ui_student.cb_choice_filter.currentText()
 
-        info = self.find_filter_info(text_filter, operation)
+        info = find_filter_info(text_filter, operation)
         self.ui_student.table_all_student.setRowCount(len(list(info)))
         for i, row in enumerate(info):
             tablerow = 0
@@ -185,8 +186,8 @@ class FormMainStudent(QMainWindow, QDialog):
                 session.close()
 
     def show_form_add_student(self):
-        self.UI_form_add_sudent = FormAddStudent(parent=self)
-        self.UI_form_add_sudent.show()
+        UI_form_add_sudent = FormAddStudent(parent=self)
+        UI_form_add_sudent.show()
 
     def update_student(self):
         session = Session()
