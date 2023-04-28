@@ -69,6 +69,7 @@ class FormMainGroup(QMainWindow, QDialog):
         self.ui_groups.btn_delete_group.clicked.connect(lambda: self.delete_group())
         self.ui_groups.btn_save_change.clicked.connect(lambda: self.update_data())
         self.ui_groups.btn_open_add_group_form.clicked.connect(lambda: self.open_add_group_window())
+        self.ui_groups.btn_change_curator.clicked.connect(lambda: self.change_curator_for_group_form())
 
     def check_combo(self) -> None:
         if self.ui_groups.cb_choice_filter.currentText() != "":
