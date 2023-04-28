@@ -34,7 +34,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Введите название группы</string>
+     <string>Выберите группу</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -55,32 +55,6 @@
     </property>
     <property name="text">
      <string>Выберите нового куратора</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="edit_name_group">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>25</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="placeholderText">
-     <string>Название группы</string>
     </property>
    </widget>
    <widget class="QComboBox" name="cb_change_curator_group">
@@ -135,6 +109,26 @@ QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
     </property>
     <property name="flat">
      <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cb_choice_group">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="currentText">
+     <string/>
     </property>
    </widget>
   </widget>

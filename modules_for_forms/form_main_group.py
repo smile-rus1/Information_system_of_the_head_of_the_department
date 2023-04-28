@@ -193,6 +193,6 @@ class FormMainGroup(QMainWindow, QDialog):
         ui_add_group = FormAddGroup(self)
         ui_add_group.show()
 
-    def change_curator_for_group_form(self):
+    def change_curator_for_group_form(self) -> None:
         ui_change_curator = FormChangeCurator(self)
         ui_change_curator.show()

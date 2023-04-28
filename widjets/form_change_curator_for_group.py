@@ -34,16 +34,6 @@ class Ui_FormChangeCurator(object):
         font.setWeight(75)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
-        self.edit_name_group = QtWidgets.QLineEdit(self.centralwidget)
-        self.edit_name_group.setEnabled(True)
-        self.edit_name_group.setGeometry(QtCore.QRect(30, 25, 241, 31))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.edit_name_group.setFont(font)
-        self.edit_name_group.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.edit_name_group.setObjectName("edit_name_group")
         self.cb_change_curator_group = QtWidgets.QComboBox(self.centralwidget)
         self.cb_change_curator_group.setGeometry(QtCore.QRect(30, 100, 241, 31))
         font = QtGui.QFont()
@@ -67,6 +57,15 @@ class Ui_FormChangeCurator(object):
         self.btn_add_group.setDefault(False)
         self.btn_add_group.setFlat(False)
         self.btn_add_group.setObjectName("btn_add_group")
+        self.cb_choice_group = QtWidgets.QComboBox(self.centralwidget)
+        self.cb_choice_group.setGeometry(QtCore.QRect(30, 30, 241, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.cb_choice_group.setFont(font)
+        self.cb_choice_group.setCurrentText("")
+        self.cb_choice_group.setObjectName("cb_choice_group")
         FormChangeCurator.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(FormChangeCurator)
@@ -75,9 +74,8 @@ class Ui_FormChangeCurator(object):
     def retranslateUi(self, FormChangeCurator):
         _translate = QtCore.QCoreApplication.translate
         FormChangeCurator.setWindowTitle(_translate("FormChangeCurator", "Форма изменения куратора"))
-        self.label.setText(_translate("FormChangeCurator", "Введите название группы"))
+        self.label.setText(_translate("FormChangeCurator", "Выберите группу"))
         self.label_4.setText(_translate("FormChangeCurator", "Выберите нового куратора"))
-        self.edit_name_group.setPlaceholderText(_translate("FormChangeCurator", "Название группы"))
         self.btn_add_group.setText(_translate("FormChangeCurator", "Добавить изменения"))
 
 
