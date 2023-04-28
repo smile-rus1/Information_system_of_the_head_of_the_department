@@ -53,7 +53,7 @@ class Ui_main_group_window(object):
         self.btn_save_change.setFlat(False)
         self.btn_save_change.setObjectName("btn_save_change")
         self.btn_delete_group = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_delete_group.setGeometry(QtCore.QRect(550, 150, 231, 31))
+        self.btn_delete_group.setGeometry(QtCore.QRect(550, 210, 231, 31))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
@@ -108,7 +108,6 @@ class Ui_main_group_window(object):
         self.cb_choice_filter.addItem("")
         self.cb_choice_filter.addItem("")
         self.cb_choice_filter.addItem("")
-        self.cb_choice_filter.addItem("")
         self.edit_filter = QtWidgets.QLineEdit(self.centralwidget)
         self.edit_filter.setEnabled(False)
         self.edit_filter.setGeometry(QtCore.QRect(220, 380, 381, 31))
@@ -138,6 +137,20 @@ class Ui_main_group_window(object):
         font.setPointSize(12)
         self.label.setFont(font)
         self.label.setObjectName("label")
+        self.btn_change_curator = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_change_curator.setGeometry(QtCore.QRect(550, 140, 231, 51))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_change_curator.setFont(font)
+        self.btn_change_curator.setStyleSheet("QPushButton {background-color: rgb(133, 125, 86); \n"
+"color: White; border-radius: 10px;}\n"
+"QPushButton:pressed {background-color:rgb(43, 252, 50) ; }")
+        self.btn_change_curator.setAutoDefault(False)
+        self.btn_change_curator.setDefault(False)
+        self.btn_change_curator.setFlat(False)
+        self.btn_change_curator.setObjectName("btn_change_curator")
         main_group_window.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(main_group_window)
@@ -163,11 +176,12 @@ class Ui_main_group_window(object):
         self.cb_choice_filter.setItemText(1, _translate("main_group_window", "id"))
         self.cb_choice_filter.setItemText(2, _translate("main_group_window", "Название группы"))
         self.cb_choice_filter.setItemText(3, _translate("main_group_window", "Куратор"))
-        self.cb_choice_filter.setItemText(4, _translate("main_group_window", "Количество человек"))
         self.edit_filter.setPlaceholderText(_translate("main_group_window", "Выберите критерий в выпадающем списке"))
         self.btn_out_criteria_group.setText(_translate("main_group_window", "Вывести \n"
 "по критерию"))
         self.label.setText(_translate("main_group_window", "Критерий выбора"))
+        self.btn_change_curator.setText(_translate("main_group_window", "Изменить куратора\n"
+"у группы"))
 
 
 if __name__ == "__main__":

@@ -1,7 +1,5 @@
-from PyQt5.QtWidgets import QDialog, QMainWindow, QTableWidgetItem, QInputDialog, QLineEdit
-from sqlalchemy import and_
+from PyQt5.QtWidgets import QDialog, QMainWindow
 
-from widjets.main_student_window import Ui_main_student_window
 from widjets.form_add_student import Ui_FormAddStudent
 
 from models.student import Student

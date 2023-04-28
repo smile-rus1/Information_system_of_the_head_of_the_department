@@ -14,6 +14,9 @@ from models.student import Student
 
 from widjets.main_group_window import Ui_main_group_window
 
+from modules_for_forms.form_add_group import FormAddGroup
+from modules_for_forms.form_change_curator_for_group import FormChangeCurator
+
 session = Session()
 
 
@@ -65,6 +68,7 @@ class FormMainGroup(QMainWindow, QDialog):
         self.ui_groups.btn_out_criteria_group.clicked.connect(lambda: self.show_filter_group())
         self.ui_groups.btn_delete_group.clicked.connect(lambda: self.delete_group())
         self.ui_groups.btn_save_change.clicked.connect(lambda: self.update_data())
+        self.ui_groups.btn_open_add_group_form.clicked.connect(lambda: self.open_add_group_window())
 
     def check_combo(self) -> None:
         if self.ui_groups.cb_choice_filter.currentText() != "":
@@ -168,7 +172,6 @@ class FormMainGroup(QMainWindow, QDialog):
 
                 group = session.query(Group).filter_by(id=int(data[0])).first()
                 group.name = data[1]
-                group.curator_id = session.query(Curator.id).filter(and_(Curator.name.like(f"{data[2]}"))).scalar_subquery()
 
             if handler_question("Вы действительно хотите сохранить?"):
                 handler_successful("Данные успено сохранены!")
@@ -184,3 +187,11 @@ class FormMainGroup(QMainWindow, QDialog):
 
         finally:
             session.close()
+
+    def open_add_group_window(self) -> None:
+        ui_add_group = FormAddGroup(self)
+        ui_add_group.show()
+
+    def change_curator_for_group_form(self):
+        ui_change_curator = FormChangeCurator(self)
+        ui_change_curator.show()
