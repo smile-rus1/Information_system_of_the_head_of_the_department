@@ -99,7 +99,7 @@ QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
     <property name="geometry">
      <rect>
       <x>550</x>
-      <y>150</y>
+      <y>210</y>
       <width>231</width>
       <height>31</height>
      </rect>
@@ -237,11 +237,6 @@ QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
       <string>Куратор</string>
      </property>
     </item>
-    <item>
-     <property name="text">
-      <string>Количество человек</string>
-     </property>
-    </item>
    </widget>
    <widget class="QLineEdit" name="edit_filter">
     <property name="enabled">
@@ -317,6 +312,41 @@ QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
     </property>
     <property name="text">
      <string>Критерий выбора</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_change_curator">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>140</y>
+      <width>231</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Изменить куратора
+у группы</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
