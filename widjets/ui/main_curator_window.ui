@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_curators_window</class>
+ <widget class="QMainWindow" name="main_curators_window">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>666</width>
+    <height>465</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Главная форма кураторов</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(198, 198, 198);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="table_all_curators">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>411</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <column>
+     <property name="text">
+      <string>id</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>ФИО куратора</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Группа куратора</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="btn_save_change">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>290</y>
+      <width>211</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Сохранить изменения
+в таблице</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_open_add_curator_form">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>90</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Добавить нового
+куратора</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_delete_curator">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>240</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Удалить куратора</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_out_all_curators">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>10</y>
+      <width>211</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Вывести всех кураторов 
+в таблицу</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_out_flter_data">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>410</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Вывести по критерию</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="edit_filter">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>410</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="placeholderText">
+     <string>Выберите критерий в выпадающем списке</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cb_choice_filter">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>410</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="currentText">
+     <string/>
+    </property>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>id</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ФИО</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Группа</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>390</y>
+      <width>161</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Критерий выбора</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_open_change_group">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>150</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {background-color: rgb(133, 125, 86); 
+color: White; border-radius: 10px;}
+QPushButton:pressed {background-color:rgb(43, 252, 50) ; }</string>
+    </property>
+    <property name="text">
+     <string>Изменить группу
+у куратора</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
