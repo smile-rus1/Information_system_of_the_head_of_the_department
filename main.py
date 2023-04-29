@@ -7,6 +7,7 @@ from widjets.main_menu import Ui_MainWindow
 
 from modules_for_forms.form_main_student import FormMainStudent
 from modules_for_forms.form_main_group import FormMainGroup
+from modules_for_forms.form_main_curators import FormMainCurators
 
 
 class MainWindow(QMainWindow):
@@ -18,14 +19,19 @@ class MainWindow(QMainWindow):
 
         self.ui.btn_open_window_student.clicked.connect(lambda: self.open_window_student())
         self.ui.btn_open_window_group.clicked.connect(lambda: self.open_window_groups())
+        self.ui.btn_open_window_curator.clicked.connect(lambda: self.open_window_curators())
 
     def open_window_student(self):
-        self.UI_main_student = FormMainStudent(parent=self)
-        self.UI_main_student.show()
+        UI_main_student = FormMainStudent()
+        UI_main_student.show()
 
     def open_window_groups(self):
-        self.UI_main_group = FormMainGroup()
-        self.UI_main_group.show()
+        UI_main_group = FormMainGroup()
+        UI_main_group.show()
+
+    def open_window_curators(self):
+        UI_main_curators = FormMainCurators()
+        UI_main_curators.show()
 
 
 def main():
