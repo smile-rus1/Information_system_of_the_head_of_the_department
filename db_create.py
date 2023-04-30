@@ -1,14 +1,27 @@
 import os
 
 from models.data_base import DATABASE_NAME, create_db, Session
+
 from models.curator import Curator
 from models.group import Group
 from models.student import Student
 
+from event.handler_question import handler_question
+from event.handler_negative import handler_negative
+from event.handler_possitive import handler_successful
 
-def main():
+
+def create_database():
     if not os.path.exists(DATABASE_NAME):
-        create_db()
+        if handler_question("Вы хотите создать базу данных?"):
+            create_db()
+            handler_successful("База данных была создана!")
+
+        else:
+            handler_negative("База данных не была создана")
+
+    else:
+        handler_negative("База данных уже создана!")
 
     session = Session()
     try:
@@ -25,4 +38,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    create_database()
