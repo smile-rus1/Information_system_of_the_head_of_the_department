@@ -80,9 +80,9 @@ class FormMainGroup(QMainWindow, QDialog):
 
     def show_all_info_group(self) -> None:
         try:
-            lst_info = [info for info in session.query(Group.id, Group.name, Curator.name,
+            lst_info = [info for info in session.query(Group.id, Group.name, func.ifnull(Curator.name, "Нет куратора"),
                 func.ifnull(func.count(Student.group), 0))
-                    .join(Curator, Curator.id == Group.curator_id)
+                    .outerjoin(Curator, Curator.id == Group.curator_id)
                     .outerjoin(Student, Student.group == Group.id)
                     .group_by(Group.name, Curator.name)
                         ]
