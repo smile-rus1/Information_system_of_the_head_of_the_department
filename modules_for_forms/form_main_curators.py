@@ -66,8 +66,8 @@ class FormMainCurators(QMainWindow, QDialog):
         self.ui_curators.btn_out_flter_data.clicked.connect(lambda: self.show_filter_curators())
         self.ui_curators.btn_delete_curator.clicked.connect(lambda: self.delete_curator())
         self.ui_curators.btn_save_change.clicked.connect(lambda: self.update_data())
-        self.ui_curators.btn_open_add_curator_form.clicked.connect(lambda: self.open_add_curator_window())
-        self.ui_curators.btn_open_change_group.clicked.connect(lambda: self.change_group_for_curator_form())
+        self.ui_curators.btn_open_add_curator_form.clicked.connect(lambda: FormAddCurator().show())
+        self.ui_curators.btn_open_change_group.clicked.connect(lambda: FormChangeGroup().show())
 
     def check_combo(self) -> None:
         if self.ui_curators.cb_choice_filter.currentText() != "":
@@ -174,9 +174,3 @@ class FormMainCurators(QMainWindow, QDialog):
 
         finally:
             session.close()
-
-    def open_add_curator_window(self) -> None:
-        FormAddCurator(self).show()
-
-    def change_group_for_curator_form(self) -> None:
-        FormChangeGroup(self).show()

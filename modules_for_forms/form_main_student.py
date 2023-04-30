@@ -78,7 +78,7 @@ class FormMainStudent(QMainWindow, QDialog):
         self.ui_student.btn_out_all_student.clicked.connect(lambda: self.show_all_info_student())
         self.ui_student.btn_show_filter_data.clicked.connect(lambda: self.show_filter_info())
         self.ui_student.btn_open_delete_student_form.clicked.connect(lambda: self.delete_student())
-        self.ui_student.btn_open_add_student_form.clicked.connect(lambda: self.show_form_add_student())
+        self.ui_student.btn_open_add_student_form.clicked.connect(lambda: FormAddStudent().show())
         self.ui_student.btn_save_change.clicked.connect(lambda: self.update_student())
 
     def check_combo(self):
@@ -184,10 +184,6 @@ class FormMainStudent(QMainWindow, QDialog):
 
             finally:
                 session.close()
-
-    def show_form_add_student(self):
-        UI_form_add_sudent = FormAddStudent(parent=self)
-        UI_form_add_sudent.show()
 
     def update_student(self):
         session = Session()
