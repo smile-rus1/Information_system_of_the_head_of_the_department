@@ -17,18 +17,9 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.ui.btn_open_window_student.clicked.connect(lambda: self.open_window_student())
-        self.ui.btn_open_window_group.clicked.connect(lambda: self.open_window_groups())
-        self.ui.btn_open_window_curator.clicked.connect(lambda: self.open_window_curators())
-
-    def open_window_student(self) -> None:
-        FormMainStudent().show()
-
-    def open_window_groups(self) -> None:
-        FormMainGroup().show()
-
-    def open_window_curators(self) -> None:
-        FormMainCurators().show()
+        self.ui.btn_open_window_student.clicked.connect(lambda: FormMainStudent().show())
+        self.ui.btn_open_window_group.clicked.connect(lambda: FormMainGroup().show())
+        self.ui.btn_open_window_curator.clicked.connect(lambda: FormMainCurators().show())
 
 
 def main():
