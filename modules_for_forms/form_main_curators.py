@@ -66,8 +66,8 @@ class FormMainCurators(QMainWindow, QDialog):
         self.ui_curators.btn_out_flter_data.clicked.connect(lambda: self.show_filter_curators())
         self.ui_curators.btn_delete_curator.clicked.connect(lambda: self.delete_curator())
         self.ui_curators.btn_save_change.clicked.connect(lambda: self.update_data())
-        self.ui_curators.btn_open_add_curator_form.clicked.connect(lambda: FormAddCurator().show())
-        self.ui_curators.btn_open_change_group.clicked.connect(lambda: FormChangeGroup().show())
+        self.ui_curators.btn_open_add_curator_form.clicked.connect(lambda: FormAddCurator(self).show())
+        self.ui_curators.btn_open_change_group.clicked.connect(lambda: FormChangeGroup(self).show())
 
     def check_combo(self) -> None:
         if self.ui_curators.cb_choice_filter.currentText() != "":
