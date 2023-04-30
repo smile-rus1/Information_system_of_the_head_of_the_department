@@ -32,18 +32,17 @@ def find_filter_info(filter_text: str, operation: str):
         filter_operation = Student.form_of_education
 
     if operation == "Группа":
-        info = session.query(Student.id, Student.FIO, Student.number_telephone, Student.date_born,
-                             Student.place_of_residence, Student.form_of_education, Group.name,
-                             Student.enrollment_order).join(Group).filter(Student.group == Group.id). \
-            filter(and_(Group.name.like(f"%{filter_text}%")))
-        return info
+        if filter_text == "Нет группы":
+            filter_operation = func.ifnull(Group.name, "Нет группы")
+        else:
+            filter_operation = Group.name
 
     try:
         info_like = session.query(Student.id, Student.FIO, Student.number_telephone,
                                   Student.date_born, Student.place_of_residence,
-                                  Student.form_of_education, Group.name,
+                                  Student.form_of_education, func.ifnull(Group.name, "Нет группы"),
                                   Student.enrollment_order) \
-            .join(Group, Group.id == Student.group).filter(and_(filter_operation.like(f"%{filter_text}%")))
+            .outerjoin(Group, Group.id == Student.group).filter(and_(filter_operation.like(f"%{filter_text}%")))
 
         return info_like
 
